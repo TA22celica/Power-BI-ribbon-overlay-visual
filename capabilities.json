@@ -1,0 +1,684 @@
+{
+  "privileges": [],
+  "sorting": {
+    "default": {}
+  },
+  "dataRoles": [
+    {
+      "displayName": "Axis (e.g. Month)",
+      "name": "axis",
+      "kind": "Grouping"
+    },
+    {
+      "displayName": "Ribbon Category",
+      "name": "category",
+      "kind": "Grouping"
+    },
+    {
+      "displayName": "Small Multiples",
+      "name": "smallMultiples",
+      "kind": "Grouping"
+    },
+    {
+      "displayName": "Ribbon Value",
+      "name": "ribbonValue",
+      "kind": "Measure"
+    },
+    {
+      "displayName": "Overlay Metric (Dot Size / Line Value)",
+      "name": "dotSize",
+      "kind": "Measure"
+    },
+    {
+      "displayName": "Overlay Callout / Label (Optional)",
+      "name": "dotLabel",
+      "kind": "Measure"
+    }
+  ],
+  "dataViewMappings": [
+    {
+      "categorical": {
+        "categories": {
+          "select": [
+            { "bind": { "to": "axis" } },
+            { "bind": { "to": "category" } },
+            { "bind": { "to": "smallMultiples" } }
+          ]
+        },
+        "values": {
+          "select": [
+            { "bind": { "to": "ribbonValue" } },
+            { "bind": { "to": "dotSize" } },
+            { "bind": { "to": "dotLabel" } }
+          ]
+        }
+      }
+    }
+  ],
+  "objects": {
+    "colorPaletteSettings": {
+      "displayName": "Colors & Themes",
+      "properties": {
+        "palette": {
+          "displayName": "Color Palette",
+          "type": {
+            "enumeration": [
+              { "value": "powerBi", "displayName": "Power BI Report Theme" },
+              { "value": "tableau10", "displayName": "Tableau 10" },
+              { "value": "category10", "displayName": "Category 10" },
+              { "value": "paired", "displayName": "Paired" },
+              { "value": "accent", "displayName": "Accent" },
+              { "value": "dark2", "displayName": "Dark 2" },
+              { "value": "set2", "displayName": "Set 2" }
+            ]
+          }
+        }
+      }
+    },
+    "legendSettings": {
+      "displayName": "Legend",
+      "properties": {
+        "show": {
+          "displayName": "Show Legend",
+          "type": { "bool": true }
+        },
+        "position": {
+          "displayName": "Position",
+          "type": {
+            "enumeration": [
+              { "value": "Top", "displayName": "Top" },
+              { "value": "Bottom", "displayName": "Bottom" },
+              { "value": "Left", "displayName": "Left" },
+              { "value": "Right", "displayName": "Right" }
+            ]
+          }
+        },
+        "fontSize": {
+          "displayName": "Text Size",
+          "type": { "formatting": { "fontSize": true } }
+        },
+        "fontColor": {
+          "displayName": "Text Color",
+          "type": { "fill": { "solid": { "color": true } } }
+        }
+      }
+    },
+    "smallMultiplesSettings": {
+      "displayName": "Small Multiples",
+      "properties": {
+        "columns": {
+          "displayName": "Grid Columns",
+          "type": { "numeric": true }
+        },
+        "showTitle": {
+          "displayName": "Show Header",
+          "type": { "bool": true }
+        },
+        "titleFontSize": {
+          "displayName": "Header Font Size",
+          "type": { "formatting": { "fontSize": true } }
+        },
+        "titleColor": {
+          "displayName": "Header Font Color",
+          "type": { "fill": { "solid": { "color": true } } }
+        }
+      }
+    },
+    "sortSettings": {
+      "displayName": "Sorting & Order",
+      "properties": {
+        "categorySort": {
+          "displayName": "Stack Order",
+          "type": {
+            "enumeration": [
+              { "value": "rankDesc", "displayName": "Highest on Top (Rank #1)" },
+              { "value": "rankAsc", "displayName": "Lowest on Top" },
+              { "value": "alphabetical", "displayName": "Alphabetical (A-Z)" }
+            ]
+          }
+        },
+        "axisSort": {
+          "displayName": "Axis Order",
+          "type": {
+            "enumeration": [
+              { "value": "natural", "displayName": "Data Model Order" },
+              { "value": "asc", "displayName": "Alphabetical / Date Ascending" },
+              { "value": "desc", "displayName": "Alphabetical / Date Descending" }
+            ]
+          }
+        },
+        "smallMultiplesSort": {
+          "displayName": "Small Multiples Order",
+          "type": {
+            "enumeration": [
+              { "value": "natural", "displayName": "Data Model Order" },
+              { "value": "asc", "displayName": "Alphabetical (A-Z)" },
+              { "value": "desc", "displayName": "Alphabetical (Z-A)" },
+              { "value": "totalDesc", "displayName": "Total Value (High to Low)" },
+              { "value": "totalAsc", "displayName": "Total Value (Low to High)" }
+            ]
+          }
+        }
+      }
+    },
+    "barSettings": {
+      "displayName": "Ribbons & Columns",
+      "properties": {
+        "ribbonOpacity": {
+          "displayName": "Ribbon Opacity (%)",
+          "type": { "numeric": true }
+        },
+        "columnPadding": {
+          "displayName": "Column Spacing (%)",
+          "type": { "numeric": true }
+        },
+        "showBarTotals": {
+          "displayName": "Show Column Totals",
+          "type": { "bool": true }
+        },
+        "barTotalFontSize": {
+          "displayName": "Total Font Size",
+          "type": { "formatting": { "fontSize": true } }
+        },
+        "barTotalColor": {
+          "displayName": "Total Font Color",
+          "type": { "fill": { "solid": { "color": true } } }
+        },
+        "displayUnits": {
+          "displayName": "Display Units",
+          "type": {
+            "enumeration": [
+              { "value": "auto", "displayName": "Auto" },
+              { "value": "none", "displayName": "None" },
+              { "value": "thousands", "displayName": "Thousands (K)" },
+              { "value": "millions", "displayName": "Millions (M)" },
+              { "value": "billions", "displayName": "Billions (B)" },
+              { "value": "trillions", "displayName": "Trillions (T)" }
+            ]
+          }
+        },
+        "decimalPlaces": {
+          "displayName": "Value Decimal Places",
+          "type": { "numeric": true }
+        },
+        "prefix": {
+          "displayName": "Prefix / Symbol",
+          "type": {
+            "enumeration": [
+              { "value": "none", "displayName": "None" },
+              { "value": "$", "displayName": "$" },
+              { "value": "€", "displayName": "€" },
+              { "value": "£", "displayName": "£" },
+              { "value": "¥", "displayName": "¥" }
+            ]
+          }
+        },
+        "suffix": {
+          "displayName": "Suffix / Unit",
+          "type": {
+            "enumeration": [
+              { "value": "none", "displayName": "None" },
+              { "value": "%", "displayName": "%" },
+              { "value": "x", "displayName": "x" },
+              { "value": "pts", "displayName": "pts" },
+              { "value": "k", "displayName": "k" },
+              { "value": "M", "displayName": "M" }
+            ]
+          }
+        }
+      }
+    },
+    "ribbonLabelSettings": {
+      "displayName": "Ribbon Data Labels",
+      "properties": {
+        "show": {
+          "displayName": "Show Segment Labels",
+          "type": { "bool": true }
+        },
+        "fontSize": {
+          "displayName": "Font Size",
+          "type": { "formatting": { "fontSize": true } }
+        },
+        "fontColor": {
+          "displayName": "Font Color",
+          "type": { "fill": { "solid": { "color": true } } }
+        },
+        "displayUnits": {
+          "displayName": "Display Units",
+          "type": {
+            "enumeration": [
+              { "value": "auto", "displayName": "Auto" },
+              { "value": "none", "displayName": "None" },
+              { "value": "thousands", "displayName": "Thousands (K)" },
+              { "value": "millions", "displayName": "Millions (M)" },
+              { "value": "billions", "displayName": "Billions (B)" }
+            ]
+          }
+        },
+        "decimalPlaces": {
+          "displayName": "Decimal Places",
+          "type": { "numeric": true }
+        },
+        "prefix": {
+          "displayName": "Prefix / Symbol",
+          "type": {
+            "enumeration": [
+              { "value": "none", "displayName": "None" },
+              { "value": "$", "displayName": "$" },
+              { "value": "€", "displayName": "€" },
+              { "value": "£", "displayName": "£" },
+              { "value": "¥", "displayName": "¥" }
+            ]
+          }
+        },
+        "suffix": {
+          "displayName": "Suffix / Unit",
+          "type": {
+            "enumeration": [
+              { "value": "none", "displayName": "None" },
+              { "value": "%", "displayName": "%" },
+              { "value": "x", "displayName": "x" },
+              { "value": "pts", "displayName": "pts" }
+            ]
+          }
+        }
+      }
+    },
+    "overlaySettings": {
+      "displayName": "Overlay Mode",
+      "properties": {
+        "mode": {
+          "displayName": "Overlay Style",
+          "type": {
+            "enumeration": [
+              { "value": "dots", "displayName": "Dots Only" },
+              { "value": "line", "displayName": "Line Graph Only" },
+              { "value": "both", "displayName": "Line and Dots" },
+              { "value": "none", "displayName": "None" }
+            ]
+          }
+        }
+      }
+    },
+    "lineSettings": {
+      "displayName": "Line Graph Options",
+      "properties": {
+        "lineColor": {
+          "displayName": "Line Color",
+          "type": { "fill": { "solid": { "color": true } } }
+        },
+        "strokeWidth": {
+          "displayName": "Line Width (px)",
+          "type": { "numeric": true }
+        },
+        "lineStyle": {
+          "displayName": "Line Style",
+          "type": {
+            "enumeration": [
+              { "value": "solid", "displayName": "Solid" },
+              { "value": "dashed", "displayName": "Dashed" },
+              { "value": "dotted", "displayName": "Dotted" }
+            ]
+          }
+        },
+        "curveType": {
+          "displayName": "Line Interpolation",
+          "type": {
+            "enumeration": [
+              { "value": "linear", "displayName": "Linear" },
+              { "value": "smooth", "displayName": "Smooth Curve" },
+              { "value": "step", "displayName": "Step" }
+            ]
+          }
+        },
+        "useSecondaryAxis": {
+          "displayName": "Use Secondary Y Axis",
+          "type": { "bool": true }
+        },
+        "showMarkers": {
+          "displayName": "Show Line Markers",
+          "type": { "bool": true }
+        },
+        "markerShape": {
+          "displayName": "Marker Shape",
+          "type": {
+            "enumeration": [
+              { "value": "circle", "displayName": "Circle" },
+              { "value": "square", "displayName": "Square" },
+              { "value": "triangle", "displayName": "Triangle" },
+              { "value": "diamond", "displayName": "Diamond" }
+            ]
+          }
+        },
+        "markerSize": {
+          "displayName": "Marker Size (px)",
+          "type": { "numeric": true }
+        },
+        "markerColor": {
+          "displayName": "Marker Color",
+          "type": { "fill": { "solid": { "color": true } } }
+        },
+        "showLabels": {
+          "displayName": "Show Line Labels",
+          "type": { "bool": true }
+        },
+        "labelPosition": {
+          "displayName": "Label Position",
+          "type": {
+            "enumeration": [
+              { "value": "above", "displayName": "Above Point" },
+              { "value": "below", "displayName": "Below Point" }
+            ]
+          }
+        },
+        "labelFontSize": {
+          "displayName": "Label Font Size",
+          "type": { "formatting": { "fontSize": true } }
+        },
+        "labelColor": {
+          "displayName": "Label Font Color",
+          "type": { "fill": { "solid": { "color": true } } }
+        },
+        "displayUnits": {
+          "displayName": "Display Units",
+          "type": {
+            "enumeration": [
+              { "value": "auto", "displayName": "Auto" },
+              { "value": "none", "displayName": "None" },
+              { "value": "thousands", "displayName": "Thousands (K)" },
+              { "value": "millions", "displayName": "Millions (M)" }
+            ]
+          }
+        },
+        "decimalPlaces": {
+          "displayName": "Decimal Places",
+          "type": { "numeric": true }
+        },
+        "prefix": {
+          "displayName": "Prefix / Symbol",
+          "type": {
+            "enumeration": [
+              { "value": "none", "displayName": "None" },
+              { "value": "$", "displayName": "$" },
+              { "value": "€", "displayName": "€" },
+              { "value": "£", "displayName": "£" },
+              { "value": "¥", "displayName": "¥" }
+            ]
+          }
+        },
+        "suffix": {
+          "displayName": "Suffix / Unit",
+          "type": {
+            "enumeration": [
+              { "value": "none", "displayName": "None" },
+              { "value": "%", "displayName": "%" },
+              { "value": "x", "displayName": "x" },
+              { "value": "pts", "displayName": "pts" }
+            ]
+          }
+        }
+      }
+    },
+    "dotSettings": {
+      "displayName": "Overlay Dots",
+      "properties": {
+        "dotColor": {
+          "displayName": "Dot Fill Color",
+          "type": { "fill": { "solid": { "color": true } } }
+        },
+        "maxDotRadius": {
+          "displayName": "Max Dot Radius (px)",
+          "type": { "numeric": true }
+        },
+        "dotOpacity": {
+          "displayName": "Dot Opacity (%)",
+          "type": { "numeric": true }
+        },
+        "dotStrokeColor": {
+          "displayName": "Border Color",
+          "type": { "fill": { "solid": { "color": true } } }
+        },
+        "dotStrokeWidth": {
+          "displayName": "Border Width (px)",
+          "type": { "numeric": true }
+        }
+      }
+    },
+    "dotLabelSettings": {
+      "displayName": "Dot Callouts / Labels",
+      "properties": {
+        "showDotTotals": {
+          "displayName": "Show Dot Totals",
+          "type": { "bool": true }
+        },
+        "labelPosition": {
+          "displayName": "Label Position",
+          "type": {
+            "enumeration": [
+              { "value": "inside", "displayName": "Inside Dot" },
+              { "value": "over", "displayName": "Above Dot" }
+            ]
+          }
+        },
+        "labelFontSize": {
+          "displayName": "Label Font Size",
+          "type": { "formatting": { "fontSize": true } }
+        },
+        "labelColor": {
+          "displayName": "Label Font Color",
+          "type": { "fill": { "solid": { "color": true } } }
+        },
+        "displayUnits": {
+          "displayName": "Display Units",
+          "type": {
+            "enumeration": [
+              { "value": "auto", "displayName": "Auto" },
+              { "value": "none", "displayName": "None" },
+              { "value": "thousands", "displayName": "Thousands (K)" },
+              { "value": "millions", "displayName": "Millions (M)" }
+            ]
+          }
+        },
+        "decimalPlaces": {
+          "displayName": "Decimal Places",
+          "type": { "numeric": true }
+        },
+        "prefix": {
+          "displayName": "Prefix / Symbol",
+          "type": {
+            "enumeration": [
+              { "value": "none", "displayName": "None" },
+              { "value": "$", "displayName": "$" },
+              { "value": "€", "displayName": "€" },
+              { "value": "£", "displayName": "£" },
+              { "value": "¥", "displayName": "¥" }
+            ]
+          }
+        },
+        "suffix": {
+          "displayName": "Suffix / Unit",
+          "type": {
+            "enumeration": [
+              { "value": "none", "displayName": "None" },
+              { "value": "%", "displayName": "%" },
+              { "value": "x", "displayName": "x" },
+              { "value": "pts", "displayName": "pts" }
+            ]
+          }
+        }
+      }
+    },
+    "yAxisSettings": {
+      "displayName": "Primary Y Axis & Scale",
+      "properties": {
+        "show": {
+          "displayName": "Show Y Axis",
+          "type": { "bool": true }
+        },
+        "showTitle": {
+          "displayName": "Show Axis Title",
+          "type": { "bool": true }
+        },
+        "titleFontSize": {
+          "displayName": "Title Font Size",
+          "type": { "formatting": { "fontSize": true } }
+        },
+        "titleColor": {
+          "displayName": "Title Font Color",
+          "type": { "fill": { "solid": { "color": true } } }
+        },
+        "scaleType": {
+          "displayName": "Scale Type",
+          "type": {
+            "enumeration": [
+              { "value": "linear", "displayName": "Linear" },
+              { "value": "log", "displayName": "Log / Symlog" }
+            ]
+          }
+        },
+        "customMin": {
+          "displayName": "Axis Minimum",
+          "type": { "numeric": true }
+        },
+        "customMax": {
+          "displayName": "Axis Maximum",
+          "type": { "numeric": true }
+        },
+        "showGridlines": {
+          "displayName": "Show Gridlines",
+          "type": { "bool": true }
+        },
+        "gridlineColor": {
+          "displayName": "Gridline Color",
+          "type": { "fill": { "solid": { "color": true } } }
+        },
+        "displayUnits": {
+          "displayName": "Display Units",
+          "type": {
+            "enumeration": [
+              { "value": "auto", "displayName": "Auto" },
+              { "value": "none", "displayName": "None" },
+              { "value": "thousands", "displayName": "Thousands (K)" },
+              { "value": "millions", "displayName": "Millions (M)" }
+            ]
+          }
+        },
+        "decimalPlaces": {
+          "displayName": "Decimal Places",
+          "type": { "numeric": true }
+        },
+        "fontSize": {
+          "displayName": "Font Size",
+          "type": { "formatting": { "fontSize": true } }
+        },
+        "fontColor": {
+          "displayName": "Font Color",
+          "type": { "fill": { "solid": { "color": true } } }
+        }
+      }
+    },
+    "secondaryYAxisSettings": {
+      "displayName": "Secondary Y Axis (Line)",
+      "properties": {
+        "show": {
+          "displayName": "Show Secondary Y Axis",
+          "type": { "bool": true }
+        },
+        "showTitle": {
+          "displayName": "Show Axis Title",
+          "type": { "bool": true }
+        },
+        "titleFontSize": {
+          "displayName": "Title Font Size",
+          "type": { "formatting": { "fontSize": true } }
+        },
+        "titleColor": {
+          "displayName": "Title Font Color",
+          "type": { "fill": { "solid": { "color": true } } }
+        },
+        "scaleType": {
+          "displayName": "Scale Type",
+          "type": {
+            "enumeration": [
+              { "value": "linear", "displayName": "Linear" },
+              { "value": "log", "displayName": "Log / Symlog" }
+            ]
+          }
+        },
+        "customMin": {
+          "displayName": "Axis Minimum",
+          "type": { "numeric": true }
+        },
+        "customMax": {
+          "displayName": "Axis Maximum",
+          "type": { "numeric": true }
+        },
+        "displayUnits": {
+          "displayName": "Display Units",
+          "type": {
+            "enumeration": [
+              { "value": "auto", "displayName": "Auto" },
+              { "value": "none", "displayName": "None" },
+              { "value": "thousands", "displayName": "Thousands (K)" },
+              { "value": "millions", "displayName": "Millions (M)" }
+            ]
+          }
+        },
+        "decimalPlaces": {
+          "displayName": "Decimal Places",
+          "type": { "numeric": true }
+        },
+        "fontSize": {
+          "displayName": "Font Size",
+          "type": { "formatting": { "fontSize": true } }
+        },
+        "fontColor": {
+          "displayName": "Font Color",
+          "type": { "fill": { "solid": { "color": true } } }
+        }
+      }
+    },
+    "xAxisSettings": {
+      "displayName": "X Axis",
+      "properties": {
+        "show": {
+          "displayName": "Show X Axis",
+          "type": { "bool": true }
+        },
+        "labelRotation": {
+          "displayName": "Label Rotation",
+          "type": {
+            "enumeration": [
+              { "value": "0", "displayName": "0° (Horizontal)" },
+              { "value": "30", "displayName": "30°" },
+              { "value": "45", "displayName": "45°" },
+              { "value": "60", "displayName": "60°" },
+              { "value": "90", "displayName": "90° (Vertical)" },
+              { "value": "-45", "displayName": "-45°" }
+            ]
+          }
+        },
+        "fontSize": {
+          "displayName": "Font Size",
+          "type": { "formatting": { "fontSize": true } }
+        },
+        "fontColor": {
+          "displayName": "Font Color",
+          "type": { "fill": { "solid": { "color": true } } }
+        },
+        "showTitle": {
+          "displayName": "Show Axis Title",
+          "type": { "bool": true }
+        },
+        "titleFontSize": {
+          "displayName": "Title Font Size",
+          "type": { "formatting": { "fontSize": true } }
+        },
+        "titleColor": {
+          "displayName": "Title Font Color",
+          "type": { "fill": { "solid": { "color": true } } }
+        }
+      }
+    }
+  }
+}

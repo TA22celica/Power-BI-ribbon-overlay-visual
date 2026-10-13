@@ -1,0 +1,26 @@
+{
+  "visual": {
+    "name": "RibbonOverlayVisual",
+    "displayName": "Ribbon Overlay Visual",
+    "guid": "ribbonOverlayVisual68751E37D2CD4BD2A9F636E3C49D0BCF",
+    "visualClassName": "Visual",
+    "version": "1.0.0.0",
+    "description": "Ribbon chart with overlaid metric dots and totals",
+    "supportUrl": "https://github.com/microsoft/PowerBI-Visuals-RibbonOverlayVisual/issues",
+    "gitHubUrl": "https://github.com/microsoft/PowerBI-Visuals-RibbonOverlayVisual"
+  },
+  "apiVersion": "5.11.1",
+  "author": {
+    "name": "Mike Sheppard",
+    "email": "mike@threadworkdata.com"
+  },
+  "assets": {
+    "icon": "assets/icon.png"
+  },
+  "externalJS": null,
+  "style": "style/visual.less",
+  "capabilities": "capabilities.json",
+  "dependencies": null,
+  "stringResources": [],
+  "version": "1.0.0.0"
+}
