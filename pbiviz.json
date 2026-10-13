@@ -6,8 +6,8 @@
     "visualClassName": "Visual",
     "version": "1.0.0.0",
     "description": "Ribbon chart with overlaid metric dots and totals",
-    "supportUrl": "https://github.com/microsoft/PowerBI-Visuals-RibbonOverlayVisual/issues",
-    "gitHubUrl": "https://github.com/microsoft/PowerBI-Visuals-RibbonOverlayVisual"
+    "supportUrl": "https://github.com/TA22celica/Power-BI-ribbon-overlay-visual/issues",
+    "gitHubUrl": "https://github.com/TA22celica/Power-BI-ribbon-overlay-visual"
   },
   "apiVersion": "5.11.1",
   "author": {
